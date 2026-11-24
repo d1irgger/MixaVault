@@ -24,6 +24,7 @@ LICENSES/Apache-2.0.txt
 .gitignore
 .gitattributes
 README.md
+README.en.md
 BUILD.md
 COMPATIBILITY.md
 CHANGELOG.md
