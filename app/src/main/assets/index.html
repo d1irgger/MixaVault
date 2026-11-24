@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#F2F2F7">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>密匣</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="splash" class="splash">
+    <img class="splash-icon" src="icon-splash.png" alt="" aria-hidden="true">
+    <div class="splash-name" data-i18n="appName"></div>
+    <div id="splashStatus" class="splash-status"></div>
+    <button id="retryBtn" class="splash-retry" type="button" data-i18n="retry" hidden>重试</button>
+  </div>
+
+  <section id="app" class="app" aria-hidden="true">
+    <header id="nav" class="nav">
+      <div class="nav-inner">
+        <span class="nav-title" data-i18n="accounts">账户</span>
+        <button id="navAddBtn" class="nav-add" type="button" data-i18n-aria="addAccount" aria-label="添加账户">
+          <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="large-head">
+        <div class="large-head-row">
+          <h1 data-i18n="accounts">账户</h1>
+          <button id="addBtn" class="head-add" type="button" data-i18n-aria="addAccount" aria-label="添加账户">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <p id="count" class="count">0 个账户</p>
+      </div>
+
+      <div class="search" id="searchWrap">
+        <svg class="search-icon" viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M15.5 15.5 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="search" type="search" data-i18n-placeholder="search" data-i18n-aria="searchAccounts" placeholder="搜索" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="搜索账户">
+        <button id="clearSearch" class="search-clear" type="button" data-i18n-aria="clearSearch" aria-label="清除搜索" hidden>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="currentColor" opacity=".22"/>
+            <path d="m9 9 6 6M15 9l-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="list" class="list"></div>
+
+      <div id="empty" class="empty" hidden>
+        <div class="empty-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30">
+            <rect x="4" y="3.5" width="16" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8.5 8.5h7M8.5 12h7M8.5 15.5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p id="emptyTitle" class="empty-title" data-i18n="emptyTitle">暂无账户</p>
+        <p id="emptyText" class="empty-text" data-i18n="emptyText">添加账户，或从文件导入。</p>
+        <button id="emptyAdd" class="empty-add" type="button" data-i18n="addAccount">添加账户</button>
+      </div>
+
+      <div class="list-footer" data-i18n="footer">数据仅存储在此设备 · 轻点卡片查看密码</div>
+    </main>
+
+    <nav class="tabbar" data-i18n-aria="bottomNav" aria-label="底部导航">
+      <button id="tabVault" class="tab active" type="button">
+        <svg viewBox="0 0 24 24" width="25" height="25" aria-hidden="true">
+          <circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M5 20c.6-3.5 3.4-5.5 7-5.5s6.4 2 7 5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span data-i18n="tabAccounts">账户</span>
+      </button>
+      <button id="tabImport" class="tab" type="button">
+        <svg viewBox="0 0 24 24" width="25" height="25" aria-hidden="true">
+          <path d="M12 3.5v11m0 0 4-4m-4 4-4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4.5 15.5v2.1c0 1.6 1.3 2.9 2.9 2.9h9.2c1.6 0 2.9-1.3 2.9-2.9v-2.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span data-i18n="tabImport">导入</span>
+      </button>
+      <button id="tabSettings" class="tab" type="button">
+        <svg viewBox="0 0 24 24" width="25" height="25" aria-hidden="true">
+          <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M19 13.2v-2.4l-2-.5a7 7 0 0 0-.7-1.6l1.1-1.8-1.7-1.7-1.8 1.1a7 7 0 0 0-1.6-.7l-.5-2H9.4l-.5 2a7 7 0 0 0-1.6.7L5.5 5.2 3.8 6.9l1.1 1.8a7 7 0 0 0-.7 1.6l-2 .5v2.4l2 .5c.2.6.4 1.1.7 1.6l-1.1 1.8 1.7 1.7 1.8-1.1c.5.3 1 .5 1.6.7l.5 2h2.4l.5-2c.6-.2 1.1-.4 1.6-.7l1.8 1.1 1.7-1.7-1.1-1.8c.3-.5.5-1 .7-1.6l2-.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+        <span data-i18n="tabSettings">设置</span>
+      </button>
+    </nav>
+  </section>
+
+  <div id="scrim" class="scrim"></div>
+  <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="grabber" aria-hidden="true"></div>
+    <header class="sheet-head">
+      <button id="sheetClose" class="sheet-close" type="button" data-i18n="cancel">取消</button>
+      <h2 id="sheetTitle" class="sheet-title"></h2>
+      <span class="sheet-spacer" aria-hidden="true"></span>
+    </header>
+    <div id="sheetBody" class="sheet-body"></div>
+  </section>
+
+  <div id="alertLayer" class="alert-layer" aria-hidden="true">
+    <div class="alert" role="alertdialog" aria-modal="true" aria-labelledby="alertTitle" aria-describedby="alertMessage">
+      <div class="alert-body">
+        <h3 id="alertTitle" class="alert-title"></h3>
+        <p id="alertMessage" class="alert-message"></p>
+      </div>
+      <div class="alert-actions">
+        <button id="alertCancel" class="alert-btn" type="button" data-i18n="cancel">取消</button>
+        <button id="alertOk" class="alert-btn alert-danger" type="button" data-i18n="delete">删除</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="passwordLayer" class="alert-layer password-layer" aria-hidden="true">
+    <div class="password-card" role="dialog" aria-modal="true" aria-labelledby="passwordTitle">
+      <h3 id="passwordTitle" class="password-title"></h3>
+      <p id="passwordMessage" class="password-message"></p>
+      <input id="passwordInput" class="password-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <input id="passwordConfirm" class="password-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" hidden>
+      <p id="passwordError" class="form-error"></p>
+      <div class="alert-actions">
+        <button id="passwordCancel" class="alert-btn" type="button" data-i18n="cancel">取消</button>
+        <button id="passwordOk" class="alert-btn password-ok" type="button"></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span id="toastIcon" class="toast-icon" aria-hidden="true"></span>
+    <span class="toast-copy">
+      <span id="toastTitle" class="toast-title"></span>
+      <span id="toastDetail" class="toast-detail"></span>
+    </span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
