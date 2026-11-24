@@ -8,7 +8,7 @@ iOS 分组列表 · 本地数据 · 离线 AI · 加密备份
 
 `Android 10+` · `0.9.2`
 
-[下载最新版本](https://github.com/d1irgger/MixaVault/releases/latest) · [English](README.en.md)
+[在线预览](https://d1irgger.github.io/MixaVault/) · [下载最新版本](https://github.com/d1irgger/MixaVault/releases/latest) · [English](README.en.md)
 
 </div>
 

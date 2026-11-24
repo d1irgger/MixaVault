@@ -8,7 +8,7 @@ iOS-style lists · Local data · Offline AI · Encrypted backups
 
 `Android 10+` · `0.9.2`
 
-[Download latest](https://github.com/d1irgger/MixaVault/releases/latest) · [中文](README.md)
+[Live Preview](https://d1irgger.github.io/MixaVault/) · [Download latest](https://github.com/d1irgger/MixaVault/releases/latest) · [中文](README.md)
 
 </div>
 
