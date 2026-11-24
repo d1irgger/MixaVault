@@ -1,68 +1,107 @@
-# Mixa Vault
+<div align="center" id="home">
 
-[中文](README.md) | English
+<h1>Mixa Vault</h1>
 
-A personal Android password manager. The UI runs in a WebView, data is handled locally by Python, and AI extraction runs entirely on-device.
+A local-first Android password manager.
 
-Current version: `0.9.2`
+iOS-style lists · Local data · Offline AI · Encrypted backups
 
-<table>
-  <tr>
-    <td><img src="docs/preview.png" width="300" alt="Main screen"></td>
-    <td><img src="docs/preview-dark.png" width="300" alt="Dark mode"></td>
+`Android 10+` · `0.9.2`
+
+[Download latest](https://github.com/d1irgger/MixaVault/releases/latest) · [中文](README.md)
+
+</div>
+
+---
+
+<p align="center">
+<a href="#screens">Screenshots</a> ·
+<a href="#overview">Overview</a> ·
+<a href="#details">Details</a> ·
+<a href="#paths">Paths</a> ·
+<a href="#license">License</a>
+</p>
+
+<h2 id="screens">Screenshots</h2>
+
+<table align="center">
+  <tr valign="top">
+    <td align="center">
+      <img src="docs/preview.png" width="300" alt="Account list">
+      <br><sub>Account list</sub>
+    </td>
+    <td align="center">
+      <img src="docs/preview-cards.png" width="300" alt="Account cards">
+      <br><sub>Account cards</sub>
+    </td>
   </tr>
 </table>
 
-## Features
+<h2 id="overview">Overview</h2>
 
-- iOS-style account list with search, add, edit, and delete.
-- Show/hide passwords and copy them as sensitive clipboard content.
-- Automatic light/dark mode and Chinese/English UI.
-- Expandable cards for password, URL, and note.
-- Import from JSON, CSV, TXT, Markdown, and HTML.
-- On-device Needle 2 extraction for common Chinese labels and three-line notes.
-- Optional encrypted backups with `.mixa` restore.
-- Plain JSON and diagnostic logs are written directly to Download.
-- No network permission, ads, analytics SDK, or telemetry.
+| Area | Details |
+|---|---|
+| Accounts | Search, add, edit, delete |
+| Passwords | Show/hide, sensitive clipboard copy |
+| Import | JSON, CSV, TXT, Markdown, HTML |
+| On-device AI | Needle 2 extraction for Chinese labels and three-line notes |
+| Backup | Plain JSON or AES-GCM encrypted `.mixa` |
+| System | Light/dark, Chinese/English, no network permission |
 
-## Security
+<h2 id="details">Details</h2>
 
-- Account data is stored in the app's private directory as plaintext JSON by default.
-- The app opens without a master password.
-- The encryption switch only affects exported `.mixa` backups, not local data.
-- Encrypted backups use standard authenticated encryption. The password is not stored and cannot be recovered.
-- The app has no network permission and does not upload accounts or logs.
+<details>
+<summary><strong>Accounts & UI</strong></summary>
+
+- iOS-style grouped cards and bottom tab bar.
+- Search, add, edit, and delete accounts.
+- Expand a card for password, URL, and note.
+- Password masked by default; tap the eye to reveal.
+- One-tap copy, marked as sensitive clipboard content on Android.
+- Follows system light/dark mode.
+- Follows system Chinese/English language.
+
+</details>
+
+<details>
+<summary><strong>Security</strong></summary>
+
+- Local accounts are plaintext JSON in the app's private directory, with no master password.
+- The encrypted backup switch only affects exported `.mixa` files.
+- Backup passwords are not stored and cannot be recovered.
+- The app has no network permission and uploads no accounts or logs.
 - Android auto-backup is disabled.
-- Uninstalling the app or clearing app data deletes local accounts.
+- Uninstalling the app or clearing data deletes local accounts.
 
-Anyone with an unlocked or rooted device, or a debug build, may still access local plaintext data.
+> An unlocked or rooted device, or a debug build, may still expose local plaintext data.
 
-## Install
+</details>
 
-Download the latest APK from GitHub Releases.
+<details>
+<summary><strong>Install & Upgrade</strong></summary>
 
-- Android 10 or later.
-- `arm64` devices support on-device AI; `x86_64` emulators hide the AI button.
-- Allow installation from unknown sources on first install.
+Download the latest APK from [GitHub Releases](https://github.com/d1irgger/MixaVault/releases/latest).
 
-### Updates
+| Case | Action |
+|---|---|
+| First install | Allow installation from unknown sources |
+| Same-signature update | Install over the existing app; data stays |
+| Debug / old signature | Export `.mixa`, uninstall, install, import |
+| AI support | `arm64` devices only; emulators hide the AI button |
 
-If the APK uses the same signing certificate and a higher `versionCode`, it can be installed over the existing app. **No uninstall is required**, and account data is preserved.
+GitHub releases do not update in the background. Download and install manually, or use Obtainium to follow releases.
 
-Back up to `.mixa`, uninstall, and reinstall only when:
+</details>
 
-- Moving from a debug-signed build
-- The signing certificate changes
-- The application ID changes
-
-GitHub releases do not update in the background. Users can download and install a new APK manually, or use a tool such as Obtainium to follow releases.
-
-## Backup
+<details>
+<summary><strong>Backup & Restore</strong></summary>
 
 Settings → File:
 
-- Encrypted backup off: export plaintext JSON to `Download/MixaVault`.
-- Encrypted backup on: export `.mixa` to `Download/MixaVault/backups`.
+```text
+Encrypted backup off → Download/MixaVault/plain JSON
+Encrypted backup on  → Download/MixaVault/backups/.mixa
+```
 
 Restore:
 
@@ -76,30 +115,50 @@ Diagnostics:
 Settings → Diagnostics → Export
 ```
 
-## Build
+</details>
 
-See [BUILD.md](BUILD.md) for the complete build steps.
+<details>
+<summary><strong>Build</strong></summary>
+
+See [BUILD.md](BUILD.md) for the complete steps.
 
 ```powershell
 cd mixa-vault
 .\gradlew.bat assembleRelease
 ```
 
-Requires JDK 21, Android SDK 35, NDK, CMake, and 64-bit Python 3.14. Exact versions are listed in [COMPATIBILITY.md](COMPATIBILITY.md).
+Requires JDK 21, Android SDK 35, NDK, CMake, and 64-bit Python 3.14. Exact versions are in [COMPATIBILITY.md](COMPATIBILITY.md).
 
-## Docs
+</details>
 
-- [BUILD.md](BUILD.md): build from scratch
-- [COMPATIBILITY.md](COMPATIBILITY.md): toolchain and compatibility
-- [GITHUB.md](GITHUB.md): repository and release workflow
-- [TRAINING.md](TRAINING.md): offline AI fine-tuning
-- [CHANGELOG.md](CHANGELOG.md): version history
+<details>
+<summary><strong>Docs</strong></summary>
 
-## Third Party
+- [BUILD.md](BUILD.md) — build from scratch
+- [COMPATIBILITY.md](COMPATIBILITY.md) — toolchain and compatibility
+- [GITHUB.md](GITHUB.md) — repository and release workflow
+- [TRAINING.md](TRAINING.md) — offline AI fine-tuning
+- [CHANGELOG.md](CHANGELOG.md) — version history
 
-Needle 2 is published by Cactus Compute under Apache-2.0.  
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+</details>
 
-## License
+<h2 id="paths">Paths</h2>
+
+| Content | Location |
+|---|---|
+| Local accounts | App private directory |
+| Plain export | `Download/MixaVault` |
+| Encrypted backup | `Download/MixaVault/backups` |
+| Diagnostics | `Download` |
+
+<h2 id="license">Third Party & License</h2>
+
+Needle 2 is published by Cactus Compute under Apache-2.0. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Application code is licensed under MIT. See [LICENSE](LICENSE).
+
+---
+
+<p align="center">
+<sub>Mixa Vault · 0.9.2 · No ads · No telemetry</sub>
+</p>
