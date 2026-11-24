@@ -1,43 +1,39 @@
-<div align="center" id="home">
+<div align="center">
 
 <h1>Mixa Vault</h1>
 
-A local-first Android password manager.
+<p>A local-first Android password manager.</p>
 
-iOS-style lists · Local data · Offline AI · Encrypted backups
+<p><strong><a href="https://d1irgger.github.io/MixaVault/">Live Preview →</a></strong></p>
 
-`Android 10+` · `0.9.2`
+<p>
+<a href="https://github.com/d1irgger/MixaVault/releases/latest">Download APK</a> ·
+<a href="README.md">中文</a>
+</p>
 
-[Live Preview](https://d1irgger.github.io/MixaVault/) · [Download latest](https://github.com/d1irgger/MixaVault/releases/latest) · [中文](README.md)
+<p><code>0.9.2</code> · <code>Android 10+</code> · <code>On-device AI</code> · <code>Encrypted Backup</code></p>
 
 </div>
 
----
+> The online page contains screenshots, features, install steps, and file locations. This README keeps only folded summaries.
 
-<p align="center">
-<a href="#screens">Screenshots</a> ·
-<a href="#overview">Overview</a> ·
-<a href="#details">Details</a> ·
-<a href="#paths">Paths</a> ·
-<a href="#license">License</a>
-</p>
+<details>
+<summary><strong>About</strong></summary>
 
-<h2 id="screens">Screenshots</h2>
+<br>
 
-<table align="center">
-  <tr valign="top">
-    <td align="center">
-      <img src="docs/preview.png" width="300" alt="Account list">
-      <br><sub>Account list</sub>
-    </td>
-    <td align="center">
-      <img src="docs/preview-cards.png" width="300" alt="Account cards">
-      <br><sub>Account cards</sub>
-    </td>
-  </tr>
-</table>
+A personal Android password manager. The UI is an iOS-style grouped list, data stays on-device, and AI extraction runs completely offline.
 
-<h2 id="overview">Overview</h2>
+- No network permission
+- No ads or telemetry
+- Plain JSON and encrypted `.mixa` backups
+
+</details>
+
+<details>
+<summary><strong>Features</strong></summary>
+
+<br>
 
 | Area | Details |
 |---|---|
@@ -46,25 +42,34 @@ iOS-style lists · Local data · Offline AI · Encrypted backups
 | Import | JSON, CSV, TXT, Markdown, HTML |
 | On-device AI | Needle 2 extraction for Chinese labels and three-line notes |
 | Backup | Plain JSON or AES-GCM encrypted `.mixa` |
-| System | Light/dark, Chinese/English, no network permission |
+| UI | Light/dark, Chinese/English |
 
-<h2 id="details">Details</h2>
+</details>
 
 <details>
-<summary><strong>Accounts & UI</strong></summary>
+<summary><strong>Screenshots</strong></summary>
 
-- iOS-style grouped cards and bottom tab bar.
-- Search, add, edit, and delete accounts.
-- Expand a card for password, URL, and note.
-- Password masked by default; tap the eye to reveal.
-- One-tap copy, marked as sensitive clipboard content on Android.
-- Follows system light/dark mode.
-- Follows system Chinese/English language.
+<br>
+
+<table align="center">
+  <tr valign="top">
+    <td align="center">
+      <img src="docs/preview.png" width="280" alt="Account list">
+      <br><sub>Account list</sub>
+    </td>
+    <td align="center">
+      <img src="docs/preview-cards.png" width="280" alt="Account cards">
+      <br><sub>Account cards</sub>
+    </td>
+  </tr>
+</table>
 
 </details>
 
 <details>
 <summary><strong>Security</strong></summary>
+
+<br>
 
 - Local accounts are plaintext JSON in the app's private directory, with no master password.
 - The encrypted backup switch only affects exported `.mixa` files.
@@ -80,6 +85,8 @@ iOS-style lists · Local data · Offline AI · Encrypted backups
 <details>
 <summary><strong>Install & Upgrade</strong></summary>
 
+<br>
+
 Download the latest APK from [GitHub Releases](https://github.com/d1irgger/MixaVault/releases/latest).
 
 | Case | Action |
@@ -87,21 +94,22 @@ Download the latest APK from [GitHub Releases](https://github.com/d1irgger/MixaV
 | First install | Allow installation from unknown sources |
 | Same-signature update | Install over the existing app; data stays |
 | Debug / old signature | Export `.mixa`, uninstall, install, import |
-| AI support | `arm64` devices only; emulators hide the AI button |
+| AI support | `arm64` devices only |
 
 GitHub releases do not update in the background. Download and install manually, or use Obtainium to follow releases.
 
 </details>
 
 <details>
-<summary><strong>Backup & Restore</strong></summary>
+<summary><strong>Backup & Paths</strong></summary>
 
-Settings → File:
+<br>
 
-```text
-Encrypted backup off → Download/MixaVault/plain JSON
-Encrypted backup on  → Download/MixaVault/backups/.mixa
-```
+| Content | Location |
+|---|---|
+| Plain export | `Download/MixaVault` |
+| Encrypted backup | `Download/MixaVault/backups` |
+| Diagnostics | `Download` |
 
 Restore:
 
@@ -109,56 +117,33 @@ Restore:
 Import → choose .mixa → enter password
 ```
 
-Diagnostics:
-
-```text
-Settings → Diagnostics → Export
-```
-
 </details>
 
 <details>
-<summary><strong>Build</strong></summary>
+<summary><strong>Build & Docs</strong></summary>
 
-See [BUILD.md](BUILD.md) for the complete steps.
+<br>
 
 ```powershell
 cd mixa-vault
 .\gradlew.bat assembleRelease
 ```
 
-Requires JDK 21, Android SDK 35, NDK, CMake, and 64-bit Python 3.14. Exact versions are in [COMPATIBILITY.md](COMPATIBILITY.md).
+- [BUILD.md](BUILD.md)
+- [COMPATIBILITY.md](COMPATIBILITY.md)
+- [GITHUB.md](GITHUB.md)
+- [TRAINING.md](TRAINING.md)
+- [CHANGELOG.md](CHANGELOG.md)
 
 </details>
 
 <details>
-<summary><strong>Docs</strong></summary>
+<summary><strong>Third Party & License</strong></summary>
 
-- [BUILD.md](BUILD.md) — build from scratch
-- [COMPATIBILITY.md](COMPATIBILITY.md) — toolchain and compatibility
-- [GITHUB.md](GITHUB.md) — repository and release workflow
-- [TRAINING.md](TRAINING.md) — offline AI fine-tuning
-- [CHANGELOG.md](CHANGELOG.md) — version history
-
-</details>
-
-<h2 id="paths">Paths</h2>
-
-| Content | Location |
-|---|---|
-| Local accounts | App private directory |
-| Plain export | `Download/MixaVault` |
-| Encrypted backup | `Download/MixaVault/backups` |
-| Diagnostics | `Download` |
-
-<h2 id="license">Third Party & License</h2>
+<br>
 
 Needle 2 is published by Cactus Compute under Apache-2.0. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Application code is licensed under MIT. See [LICENSE](LICENSE).
 
----
-
-<p align="center">
-<sub>Mixa Vault · 0.9.2 · No ads · No telemetry</sub>
-</p>
+</details>
