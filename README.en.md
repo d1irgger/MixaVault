@@ -6,11 +6,12 @@ A personal Android password manager. The UI runs in a WebView, data is handled l
 
 Current version: `0.9.2`
 
-![Main screen](docs/preview.png)
-
-![Dark mode](docs/preview-dark.png)
-
-![Icon](docs/icon.png)
+<table>
+  <tr>
+    <td><img src="docs/preview.png" width="300" alt="Main screen"></td>
+    <td><img src="docs/preview-dark.png" width="300" alt="Dark mode"></td>
+  </tr>
+</table>
 
 ## Features
 

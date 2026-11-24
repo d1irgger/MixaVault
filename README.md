@@ -6,11 +6,12 @@
 
 当前版本：`0.9.2`
 
-![主界面](docs/preview.png)
-
-![深色模式](docs/preview-dark.png)
-
-![图标](docs/icon.png)
+<table>
+  <tr>
+    <td><img src="docs/preview.png" width="300" alt="主界面"></td>
+    <td><img src="docs/preview-dark.png" width="300" alt="深色模式"></td>
+  </tr>
+</table>
 
 ## 功能
 
