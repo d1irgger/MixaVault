@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="密匣 Mixa Vault：本地优先的 Android 账户密码管理器，支持离线 AI 识别和加密备份。">
+  <title>密匣 · Mixa Vault</title>
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <img src="icon.png" alt="" width="30" height="30">
+      <span>Mixa Vault</span>
+    </a>
+    <nav class="nav" aria-label="页面导航">
+      <a href="#screens">截图</a>
+      <a href="#features">功能</a>
+      <a href="#security">安全</a>
+      <a href="#install">安装</a>
+      <a href="#docs">文档</a>
+    </nav>
+    <a class="button button-small" href="https://github.com/d1irgger/MixaVault/releases/latest">下载 APK</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">Android 10+ · 本地优先 · 无网络权限</p>
+      <h1>密匣<span>Mixa Vault</span></h1>
+      <p class="lede">
+        一个个人自用的 Android 账户密码管理器。iOS 风格列表，数据保存在设备本地，
+        AI 识别完全离线运行。
+      </p>
+      <div class="actions">
+        <a class="button" href="https://github.com/d1irgger/MixaVault/releases/latest">下载最新版本</a>
+        <a class="button button-ghost" href="https://github.com/d1irgger/MixaVault">GitHub 仓库</a>
+      </div>
+      <div class="meta">
+        <span>本地 AI</span>
+        <span>加密备份</span>
+        <span>无广告</span>
+        <span>无遥测</span>
+      </div>
+    </section>
+
+    <section class="section" id="screens">
+      <div class="section-head">
+        <p class="kicker">预览</p>
+        <h2>账户列表与卡片</h2>
+        <p>轻量卡片、分组列表和清晰的密码查看层次。</p>
+      </div>
+      <div class="shots">
+        <figure>
+          <div class="phone"><img src="preview.png" alt="账户列表截图" loading="lazy"></div>
+          <figcaption>账户列表</figcaption>
+        </figure>
+        <figure>
+          <div class="phone"><img src="preview-cards.png" alt="账户卡片截图" loading="lazy"></div>
+          <figcaption>账户卡片</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head">
+        <p class="kicker">功能</p>
+        <h2>专注账户管理</h2>
+        <p>不做社交，不做云同步，只处理你本地的账户。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="index">01</span>
+          <h3>账户管理</h3>
+          <p>搜索、添加、编辑、删除，按名称排序。</p>
+        </article>
+        <article class="card">
+          <span class="index">02</span>
+          <h3>密码操作</h3>
+          <p>默认模糊，点眼睛显示，一键复制为敏感内容。</p>
+        </article>
+        <article class="card">
+          <span class="index">03</span>
+          <h3>自动外观</h3>
+          <p>跟随系统浅色/深色模式，中英文自动切换。</p>
+        </article>
+        <article class="card">
+          <span class="index">04</span>
+          <h3>多格式导入</h3>
+          <p>JSON、CSV、TXT、Markdown、HTML 和纯文本粘贴。</p>
+        </article>
+        <article class="card">
+          <span class="index">05</span>
+          <h3>本地 AI</h3>
+          <p>Needle 2 在设备端识别中文标签和三行笔记。</p>
+        </article>
+        <article class="card">
+          <span class="index">06</span>
+          <h3>备份与日志</h3>
+          <p>明文 JSON、加密 .mixa 和诊断日志直接写入 Download。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="section-head">
+        <p class="kicker">安全</p>
+        <h2>明确的边界</h2>
+      </div>
+      <div class="split">
+        <article class="panel">
+          <h3>本地数据</h3>
+          <p>账户保存在应用私有目录，默认是明文 JSON，没有主密码。应用没有网络权限，也不会上传账户或日志。</p>
+          <ul>
+            <li>关闭 Android 自动备份</li>
+            <li>卸载应用会删除本地数据</li>
+            <li>debug / root 设备仍可能读取明文</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h3>加密备份</h3>
+          <p>设置里的“加密备份”只作用于导出的 .mixa 文件，不改变本地数据。</p>
+          <ul>
+            <li>使用标准认证加密</li>
+            <li>密码不保存，忘记无法恢复</li>
+            <li>支持在导入页直接恢复</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="section-head">
+        <p class="kicker">安装</p>
+        <h2>下载与升级</h2>
+        <p>从 GitHub Releases 获取签名 APK。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>场景</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>首次安装</td><td>允许安装未知来源应用</td></tr>
+            <tr><td>同一签名升级</td><td>直接覆盖安装，数据保留</td></tr>
+            <tr><td>debug / 旧签名</td><td>先导出 .mixa，卸载，再安装</td></tr>
+            <tr><td>AI 支持</td><td>仅 arm64 真机，模拟器不显示 AI 按钮</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="paths">
+      <div class="section-head">
+        <p class="kicker">路径</p>
+        <h2>文件位置</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>内容</th><th>位置</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>本地账户</td><td><code>应用私有目录</code></td></tr>
+            <tr><td>明文导出</td><td><code>Download/MixaVault</code></td></tr>
+            <tr><td>加密备份</td><td><code>Download/MixaVault/backups</code></td></tr>
+            <tr><td>诊断日志</td><td><code>Download</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <div class="section-head">
+        <p class="kicker">文档</p>
+        <h2>继续了解</h2>
+      </div>
+      <details class="fold">
+        <summary>构建与开发</summary>
+        <div class="fold-body">
+          <p>完整构建步骤见 <a href="https://github.com/d1irgger/MixaVault/blob/main/BUILD.md">BUILD.md</a>，工具链与兼容性见 <a href="https://github.com/d1irgger/MixaVault/blob/main/COMPATIBILITY.md">COMPATIBILITY.md</a>。</p>
+          <pre><code>cd mixa-vault
+.\gradlew.bat assembleRelease</code></pre>
+          <p>发布流程见 <a href="https://github.com/d1irgger/MixaVault/blob/main/GITHUB.md">GITHUB.md</a>，版本记录见 <a href="https://github.com/d1irgger/MixaVault/blob/main/CHANGELOG.md">CHANGELOG.md</a>。</p>
+        </div>
+      </details>
+      <details class="fold">
+        <summary>第三方与 License</summary>
+        <div class="fold-body">
+          <p>Needle 2 由 Cactus Compute 发布，Apache-2.0。应用代码使用 MIT License。</p>
+          <p><a href="https://github.com/d1irgger/MixaVault/blob/main/THIRD_PARTY_NOTICES.md">第三方说明</a> · <a href="https://github.com/d1irgger/MixaVault/blob/main/LICENSE">LICENSE</a></p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>密匣 · Mixa Vault</strong> · 0.9.2</p>
+    <p>本地优先 · 无广告 · 无遥测</p>
+    <p><a href="https://github.com/d1irgger/MixaVault">GitHub</a> · <a href="https://github.com/d1irgger/MixaVault/releases/latest">Releases</a></p>
+  </footer>
+</body>
+</html>
